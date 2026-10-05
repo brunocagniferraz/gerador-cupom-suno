@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Gerador de Link com Cupom Suno</title>
+<title>Gerador de Links de Checkout Suno</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&display=swap" rel="stylesheet">
@@ -40,23 +40,39 @@
   body { margin: 0; background: var(--page); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
 
   /* Hero */
-  .hero { max-width: 1400px; margin: 0 auto; padding: 48px 32px 56px; display: grid; grid-template-columns: 1fr minmax(0, 44rem); gap: 48px; align-items: start; }
-  .eyebrow { font-family: var(--heading); font-weight: 600; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin: 0 0 16px; }
-  .hero h1 { font-family: var(--heading); font-weight: 700; font-size: clamp(34px, 4.2vw, 54px); line-height: 1.12; letter-spacing: -.01em; margin: 0 0 24px; max-width: 14ch; }
-  .hero .lead { color: var(--text); font-size: 18px; line-height: 1.7; max-width: 36rem; margin: 0 0 36px; }
-  .cta { display: inline-flex; align-items: center; gap: 10px; font-family: var(--heading); font-weight: 600; font-size: 17px; color: #fff; background: var(--red); border-radius: 999px; padding: 16px 28px; text-decoration: none; box-shadow: 0 10px 24px -8px rgba(212,33,38,.55); }
-  .cta:hover { background: #bf1d22; }
-  .cta:focus-visible { outline: 3px solid var(--red-soft); outline-offset: 3px; }
-  .steps { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 12px 28px; box-shadow: 0 12px 32px -12px rgba(28,27,27,.10); list-style: none; margin: 0; }
-  .steps li { display: grid; grid-template-columns: 34px 1fr; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--line); }
-  .steps li:last-child { border-bottom: none; }
-  .num { width: 32px; height: 32px; border-radius: 50%; background: var(--red-soft); color: var(--red); font-family: var(--heading); font-weight: 700; font-size: 15px; display: grid; place-items: center; }
-  .steps h3 { font-family: var(--heading); font-weight: 600; font-size: 17px; margin: 2px 0 6px; }
-  .steps p { margin: 0; color: var(--muted); font-size: 15px; }
+  .frame { max-width: 1120px; margin: 0 auto; border-left: 1px solid var(--line); border-right: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 28px; border-bottom: 1px solid var(--line); }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { color: var(--text); text-decoration: none; font-size: 14px; }
+  .nav-links a:hover { color: var(--red); }
+  .logo-sm .paren { font-size: 34px; }
+  .logo-sm .suno { font-size: 9px; }
+  .logo-sm .research { font-size: 13px; }
+  .btn-ghost, .btn-red, .btn-white { display: inline-flex; align-items: center; height: 38px; padding: 0 16px; border-radius: 8px; font-family: var(--heading); font-weight: 600; font-size: 14px; text-decoration: none; }
+  .btn-ghost { border: 1px solid var(--red); color: var(--red); }
+  .btn-ghost:hover { background: var(--red-soft); }
+  .btn-red { background: var(--red); color: #fff; border: 1px solid var(--red); }
+  .btn-red:hover { background: #bf1d22; }
+  .btn-white { background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
+  .btn-white:hover { border-color: var(--muted); }
+  .hero { text-align: center; padding: 72px 24px 64px; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text); text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; margin-bottom: 28px; }
+  .badge strong { color: var(--red); font-weight: 600; }
+  .hero h1 { font-family: var(--heading); font-weight: 600; font-size: clamp(32px, 5vw, 56px); line-height: 1.1; letter-spacing: -.02em; margin: 0 auto 18px; max-width: 20ch; }
+  .hero .lead { color: var(--muted); font-size: 17px; line-height: 1.6; max-width: 32rem; margin: 0 auto 32px; }
+  .hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .strip { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+  .strip a { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 18px 12px; color: var(--text); text-decoration: none; font-size: 14px; font-weight: 500; border-right: 1px solid var(--line); border-bottom: 2px solid transparent; }
+  .strip a:last-child { border-right: none; }
+  .strip a svg { width: 16px; height: 16px; color: var(--muted); }
+  .strip a:hover { color: var(--ink); background: var(--surface); }
+  .strip a.ativo { color: var(--ink); border-bottom-color: var(--red); background: var(--surface); }
+  .strip a.ativo svg { color: var(--red); }
+  .nav a:focus-visible, .hero a:focus-visible, .strip a:focus-visible { outline: 3px solid var(--red-soft); outline-offset: 2px; }
 
   /* Barra da ferramenta */
   .toolbar { position: sticky; top: 0; z-index: 5; background: var(--surface); border-top: 1px solid var(--line); border-bottom: 3px solid var(--red); padding-top: env(safe-area-inset-top, 0px); }
-  .toolbar-inner { max-width: 1400px; margin: 0 auto; padding: 12px 32px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .toolbar-inner { max-width: 1168px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
   .logo { display: flex; align-items: center; gap: 6px; color: var(--ink); text-decoration: none; }
   .logo .paren { font-family: var(--heading); font-weight: 500; font-size: 46px; line-height: 1; color: var(--red); transform: translateY(-3px); }
   .logo .word { display: flex; flex-direction: column; align-items: center; font-family: var(--heading); line-height: 1; }
@@ -75,7 +91,7 @@
   .btn:focus-visible { outline: 3px solid var(--red-soft); outline-offset: 2px; border-color: var(--red); }
 
   /* Área de trabalho */
-  .work { max-width: 1400px; margin: 0 auto; padding: 32px 32px 64px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+  .work { max-width: 1168px; margin: 0 auto; padding: 32px 24px 64px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: start; }
   .card { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 28px; box-shadow: 0 12px 32px -12px rgba(28,27,27,.10); }
   .card h2 { font-family: var(--heading); font-weight: 600; font-size: 20px; margin: 0 0 20px; }
   .field { display: flex; align-items: center; gap: 12px; background: var(--field); border: 1px solid var(--line); border-radius: 8px; padding: 0 14px; height: 48px; margin-bottom: 14px; }
@@ -98,145 +114,219 @@
   .msg.ok { color: var(--success); font-weight: 600; }
   .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
 
+
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .seg button { height: 40px; padding: 0 18px; border: none; background: var(--surface); color: var(--ink); font-family: var(--heading); font-weight: 600; font-size: 15px; cursor: pointer; }
+  .seg button + button { border-left: 1px solid var(--line); }
+  .seg button[aria-selected="true"] { background: var(--red); color: #fff; }
+  .seg button:focus-visible { outline: 3px solid var(--red-soft); outline-offset: -3px; }
+  .panel[hidden], .btn[hidden] { display: none; }
+  .card .sub { color: var(--muted); margin: -12px 0 20px; font-size: 14px; }
+  .field label { min-width: 104px; }
+  .field label small { display: block; font-size: 10px; letter-spacing: .06em; color: #a39d9d; font-weight: 500; }
+  .field.tall { height: 56px; }
+  .field.tall label { font-family: var(--mono); text-transform: none; letter-spacing: 0; font-weight: 500; font-size: 12px; min-width: 124px; }
+  .field.tall label small { font-family: var(--heading); text-transform: uppercase; }
   @media (max-width: 960px) {
-    .hero, .work { grid-template-columns: 1fr; }
-    .hero { padding: 36px 20px 40px; gap: 32px; }
+    .work { grid-template-columns: minmax(0, 1fr); padding: 24px 16px 48px; }
+    .card { padding: 22px 18px; }
+    .field.tall label { min-width: 104px; }
+    #copiarTop, #abrirTop { display: none; }
+    .btn-ghost { white-space: nowrap; height: 34px; padding: 0 12px; font-size: 13px; }
+    .nav { padding: 12px 16px; }
+    .hero { padding: 48px 20px 44px; }
+    .nav-links { display: none; }
+    .strip { grid-template-columns: repeat(2, 1fr); }
+    .strip a:nth-child(2) { border-right: none; }
+    .strip a:nth-child(-n+2) { border-bottom-color: var(--line); }
+    .strip a.ativo { border-bottom-color: var(--red); }
     .work { padding: 24px 20px 48px; }
     .toolbar-inner { padding: 10px 20px; }
     .toolbar .spacer, .toolbar .sep, .toolbar .tool-name { display: none; }
+    .seg { flex: 1; } .seg button { flex: 1; padding: 0 8px; font-size: 14px; white-space: nowrap; }
+    .toolbar-inner { flex-wrap: nowrap; gap: 8px; }
+    #limpar { padding: 0 11px; } #limpar .lbl { display: none; }
+    .seg { min-width: 0; } .seg button { font-size: 13px; padding: 0 6px; }
   }
 </style>
 </head>
 <body>
 
-<section class="hero">
-  <div>
-    <p class="eyebrow">Time comercial · Suno Research</p>
-    <h1>O link com desconto, pronto em segundos.</h1>
-    <p class="lead">Cole o link do carrinho, informe o cupom e receba o checkout com o desconto aplicado, com ou sem UTMs de rastreio. Sem montar parâmetro na mão e sem erro de digitação.</p>
-    <a class="cta" href="#ferramenta">Gerar link
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-    </a>
-  </div>
-  <ol class="steps">
-    <li><span class="num">01</span><div><h3>Cole o link do carrinho</h3><p>Use o link do checkout do plano, no formato /v5/cart/add/.</p></div></li>
-    <li><span class="num">02</span><div><h3>Informe o cupom</h3><p>O código é convertido para maiúsculas e aplicado no parâmetro certo, substituindo qualquer cupom anterior.</p></div></li>
-    <li><span class="num">03</span><div><h3>Copie e envie</h3><p>Teste no navegador para conferir o desconto e envie ao cliente.</p></div></li>
-  </ol>
-</section>
-
-<header class="toolbar" id="ferramenta">
-  <div class="toolbar-inner">
-    <span class="logo" aria-label="Suno Research">
+<div class="frame">
+  <nav class="nav" aria-label="Principal">
+    <a class="logo logo-sm" href="#" aria-label="Suno Research">
       <span class="paren" aria-hidden="true">(</span>
       <span class="word" aria-hidden="true"><span class="suno">SUNO</span><span class="research">RESEARCH</span></span>
       <span class="paren" aria-hidden="true">)</span>
-    </span>
+    </a>
+    <div class="nav-links">
+      <a href="#ferramenta" data-modo="checkout" data-foco="ck_link">Checkout</a>
+      <a href="#ferramenta" data-modo="cupom" data-foco="cp_link">Cupom</a>
+    </div>
+    <a class="btn-ghost" href="#ferramenta" data-modo="checkout" data-foco="ck_link">Abrir o gerador</a>
+  </nav>
+
+  <section class="hero">
+    <a class="badge" href="#ferramenta" data-modo="checkout" data-foco="ck_campaign">Novo: <strong>checkout com Suno Code</strong>
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <h1>Links de checkout prontos em segundos</h1>
+    <p class="lead">Configure UTMs e Suno Code, aplique cupons e envie ao cliente sem montar parâmetro na mão.</p>
+    <div class="hero-ctas">
+      <a class="btn-red" href="#ferramenta" data-modo="checkout" data-foco="ck_link">Configurar checkout</a>
+      <a class="btn-white" href="#ferramenta" data-modo="cupom" data-foco="cp_link">Aplicar cupom</a>
+    </div>
+  </section>
+
+  <div class="strip" role="list">
+    <a role="listitem" href="#ferramenta" class="ativo" data-modo="checkout" data-foco="ck_link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.8h8.2a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg>Checkout</a>
+    <a role="listitem" href="#ferramenta" data-modo="checkout" data-foco="ck_term">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Vendedor</a>
+    <a role="listitem" href="#ferramenta" data-modo="checkout" data-foco="ck_campaign">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/></svg>Suno Code</a>
+    <a role="listitem" href="#ferramenta" data-modo="cupom" data-foco="cp_cupom">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>Cupom</a>
+  </div>
+</div>
+
+<header class="toolbar" id="ferramenta">
+  <div class="toolbar-inner">
+    <span class="tool-name">Links de Checkout</span>
     <span class="sep"></span>
-    <span class="tool-name">Gerador de Link com Cupom</span>
+    <div class="seg" role="tablist" aria-label="Função">
+      <button role="tab" id="tab-checkout" aria-selected="true" aria-controls="painel-checkout">Configurar checkout</button>
+      <button role="tab" id="tab-cupom" aria-selected="false" aria-controls="painel-cupom">Aplicar cupom</button>
+    </div>
     <span class="spacer"></span>
     <button class="btn" id="copiarTop" disabled>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copiar</button>
     <button class="btn" id="abrirTop" disabled>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>Testar</button>
-    <button class="btn danger" id="limpar">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Limpar</button>
+    <button class="btn danger" id="limpar" aria-label="Limpar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg><span class="lbl">Limpar</span></button>
   </div>
 </header>
 
 <main class="work">
-  <section class="card" aria-labelledby="t-dados">
-    <h2 id="t-dados">Dados do link</h2>
-    <div class="field"><label for="link">Link</label><input type="text" id="link" placeholder="https://checkout.suno.com.br/v5/cart/add/..." autocomplete="off" spellcheck="false"></div>
-    <div class="field"><label for="cupom">Cupom</label><input type="text" id="cupom" placeholder="Ex: LYNCH35OFFBF" autocomplete="off" spellcheck="false"></div>
+  <section class="card panel" id="painel-checkout" role="tabpanel" aria-labelledby="tab-checkout">
+    <h2>Configurar checkout</h2>
+    <p class="sub">Inclui os UTMs de rastreio da venda no link do carrinho.</p>
+    <div class="field"><label for="ck_link">Link</label><input type="text" id="ck_link" placeholder="https://checkout.suno.com.br/v5/cart/add/..." autocomplete="off" spellcheck="false"></div>
+    <div class="field tall"><label for="ck_source">utm_source</label><input type="text" id="ck_source" placeholder="venda.ativa"></div>
+    <div class="field tall"><label for="ck_medium">utm_medium</label><input type="text" id="ck_medium" placeholder="Comercial"></div>
+    <div class="field tall"><label for="ck_term">utm_term<small>Vendedor</small></label><input type="text" id="ck_term" placeholder="Nome.Sobrenome" autocomplete="off"></div>
+    <div class="field tall"><label for="ck_campaign">utm_campaign<small>Suno Code</small></label><input type="text" id="ck_campaign" placeholder="Ex: SNC6D0F659B" autocomplete="off" spellcheck="false"></div>
+    <p class="note">utm_source, utm_medium e o nome do vendedor ficam salvos neste navegador. O Suno Code é limpo automaticamente: espaços e sublinhados nas pontas são removidos.</p>
+  </section>
 
-    <label class="toggle"><input type="checkbox" id="usarUtm"> Incluir UTMs de rastreio</label>
-    <div class="utm" id="utmGrid" hidden>
-      <div class="field"><label for="utm_source">utm_source</label><input type="text" id="utm_source" value="venda.ativa"></div>
-      <div class="field"><label for="utm_medium">utm_medium</label><input type="text" id="utm_medium" value="Comercial"></div>
-      <div class="field"><label for="utm_campaign">utm_campaign</label><input type="text" id="utm_campaign" placeholder="Opcional"></div>
-      <div class="field"><label for="utm_term">utm_term</label><input type="text" id="utm_term" placeholder="Nome.Sobrenome"></div>
-      <p class="note">Seu utm_term fica salvo neste navegador para as próximas vezes.</p>
-    </div>
+  <section class="card panel" id="painel-cupom" role="tabpanel" aria-labelledby="tab-cupom" hidden>
+    <h2>Aplicar cupom</h2>
+    <p class="sub">Inclui o código de desconto no link. UTMs que já estiverem no link são mantidos.</p>
+    <div class="field"><label for="cp_link">Link</label><input type="text" id="cp_link" placeholder="https://checkout.suno.com.br/v5/cart/add/..." autocomplete="off" spellcheck="false"></div>
+    <div class="field"><label for="cp_cupom">Cupom</label><input type="text" id="cp_cupom" placeholder="Ex: LYNCH35OFFBF" autocomplete="off" spellcheck="false" style="font-weight:700;text-transform:uppercase;letter-spacing:.04em"></div>
   </section>
 
   <section class="card" aria-labelledby="t-result" aria-live="polite">
-    <h2 id="t-result">Link com desconto</h2>
-    <div class="output" id="output">Preencha o link e o cupom para gerar o link.</div>
+    <h2 id="t-result">Link gerado</h2>
+    <div class="output" id="output">Preencha os campos para gerar o link.</div>
     <p class="msg" id="msg"></p>
     <div class="actions">
       <button class="btn primary" id="copiar" disabled>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copiar link</button>
       <button class="btn" id="abrir" disabled>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>Testar no navegador</button>
+      <button class="btn" id="levarCupom" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H4M14 6l6 6-6 6"/></svg>Aplicar cupom neste link</button>
     </div>
   </section>
 </main>
 
 <script>
   const $ = id => document.getElementById(id);
-  const utmKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_term"];
-  const acoes = ["copiar", "abrir", "copiarTop", "abrirTop"];
+  const acoes = ["copiar", "abrir", "copiarTop", "abrirTop", "levarCupom"];
+  const salvos = ["ck_source", "ck_medium", "ck_term"];
+  let modo = "checkout";
   let linkFinal = "";
 
-  try {
-    const term = localStorage.getItem("utm_term");
-    if (term) $("utm_term").value = term;
-    if (localStorage.getItem("usarUtm") === "1") { $("usarUtm").checked = true; $("utmGrid").hidden = false; }
-  } catch (e) {}
+  try { salvos.forEach(id => { const v = localStorage.getItem(id); if (v) $(id).value = v; }); } catch (e) {}
+  if (!$("ck_source").value) $("ck_source").value = "venda.ativa";
+  if (!$("ck_medium").value) $("ck_medium").value = "Comercial";
 
   const escapeHtml = s => s.replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const habilitar = on => acoes.forEach(id => $(id).disabled = !on);
+  const limparCodigo = v => v.trim().replace(/\s+/g, "").replace(/^_+|_+$/g, "");
 
   function gerar() {
-    const bruto = $("link").value.trim();
-    const cupom = $("cupom").value.trim().replace(/\s+/g, "").toUpperCase();
     const out = $("output"), msg = $("msg");
     linkFinal = "";
     out.classList.remove("ready");
     msg.className = "msg"; msg.textContent = "";
     habilitar(false);
+    $("levarCupom").hidden = modo !== "checkout";
 
-    if (!bruto || !cupom) { out.textContent = "Preencha o link e o cupom para gerar o link."; return; }
-
+    const bruto = $(modo === "checkout" ? "ck_link" : "cp_link").value.trim();
+    if (!bruto) { out.textContent = "Cole o link do carrinho para começar."; return; }
     let url;
     try { url = new URL(bruto); } catch (e) {
       out.textContent = "Link inválido.";
-      msg.className = "msg error";
-      msg.textContent = "Confira se o link começa com https://";
+      msg.className = "msg error"; msg.textContent = "Confira se o link começa com https://";
       return;
-    }
-    if (!/\/cart\/add\//.test(url.pathname)) {
-      msg.className = "msg error";
-      msg.textContent = "Atenção: esse link não parece ser de carrinho (/cart/add/). Confira antes de enviar.";
     }
 
     const antigos = new URLSearchParams(url.search);
-    antigos.delete("code");
     const params = new URLSearchParams();
-    params.set("code", cupom);
-    antigos.forEach((v, k) => { if (k) params.set(k, v); });
+    const destaques = [];
 
-    if ($("usarUtm").checked) {
-      utmKeys.forEach(k => { const v = $(k).value.trim(); if (v) params.set(k, v); else params.delete(k); });
+    if (modo === "checkout") {
+      const campos = {
+        utm_source: $("ck_source").value.trim(),
+        utm_medium: $("ck_medium").value.trim(),
+        utm_campaign: limparCodigo($("ck_campaign").value),
+        utm_term: $("ck_term").value.trim().replace(/\s+/g, ".")
+      };
+      if (antigos.has("code")) params.set("code", antigos.get("code"));
+      antigos.delete("code");
+      Object.keys(campos).forEach(k => antigos.delete(k));
+      antigos.forEach((v, k) => { if (k) params.set(k, v); });
+      Object.entries(campos).forEach(([k, v]) => { if (v) { params.set(k, v); destaques.push(k + "=" + encodeURIComponent(v)); } });
+      const faltando = Object.entries(campos).filter(([, v]) => !v).map(([k]) => k);
+      if (faltando.length) { msg.className = "msg error"; msg.textContent = "Campo vazio: " + faltando.join(", ") + ". O link foi gerado sem ele."; }
+    } else {
+      const cupom = limparCodigo($("cp_cupom").value).toUpperCase();
+      if (!cupom) { out.textContent = "Informe o cupom para gerar o link."; return; }
+      antigos.delete("code");
+      params.set("code", cupom);
+      antigos.forEach((v, k) => { if (k) params.set(k, v); });
+      destaques.push("code=" + encodeURIComponent(cupom));
+    }
+
+    if (!/\/cart\/add\//.test(url.pathname) && !msg.textContent) {
+      msg.className = "msg error"; msg.textContent = "Atenção: esse link não parece ser de carrinho (/cart/add/). Confira antes de enviar.";
     }
 
     url.search = params.toString();
     linkFinal = url.toString();
-
-    const destaque = "code=" + encodeURIComponent(cupom);
-    out.innerHTML = escapeHtml(linkFinal).replace(escapeHtml(destaque), '<span class="code">' + escapeHtml(destaque) + '</span>');
+    let html = escapeHtml(linkFinal);
+    destaques.forEach(d => { html = html.replace(escapeHtml(d), '<span class="code">' + escapeHtml(d) + '</span>'); });
+    out.innerHTML = html;
     out.classList.add("ready");
     habilitar(true);
   }
 
-  ["link", "cupom", ...utmKeys].forEach(id => $(id).addEventListener("input", gerar));
-  $("utm_term").addEventListener("input", () => { try { localStorage.setItem("utm_term", $("utm_term").value.trim()); } catch (e) {} });
-  $("usarUtm").addEventListener("change", () => {
-    $("utmGrid").hidden = !$("usarUtm").checked;
-    try { localStorage.setItem("usarUtm", $("usarUtm").checked ? "1" : "0"); } catch (e) {}
+  function trocarModo(novo) {
+    modo = novo;
+    $("tab-checkout").setAttribute("aria-selected", novo === "checkout");
+    $("tab-cupom").setAttribute("aria-selected", novo === "cupom");
+    $("painel-checkout").hidden = novo !== "checkout";
+    $("painel-cupom").hidden = novo !== "cupom";
     gerar();
-  });
+  }
+  $("tab-checkout").addEventListener("click", () => trocarModo("checkout"));
+  $("tab-cupom").addEventListener("click", () => trocarModo("cupom"));
+
+  ["ck_link", "ck_source", "ck_medium", "ck_term", "ck_campaign", "cp_link", "cp_cupom"].forEach(id => $(id).addEventListener("input", gerar));
+  salvos.forEach(id => $(id).addEventListener("input", () => { try { localStorage.setItem(id, $(id).value.trim()); } catch (e) {} }));
 
   async function copiar() {
     if (!linkFinal) return;
@@ -255,10 +345,29 @@
   $("copiarTop").addEventListener("click", copiar);
   $("abrir").addEventListener("click", abrir);
   $("abrirTop").addEventListener("click", abrir);
-  $("limpar").addEventListener("click", () => {
-    $("link").value = ""; $("cupom").value = ""; $("utm_campaign").value = "";
-    gerar(); $("link").focus();
+  $("levarCupom").addEventListener("click", () => {
+    if (!linkFinal) return;
+    $("cp_link").value = linkFinal;
+    trocarModo("cupom");
+    $("cp_cupom").focus();
   });
+  $("limpar").addEventListener("click", () => {
+    ["ck_link", "ck_campaign", "cp_link", "cp_cupom"].forEach(id => $(id).value = "");
+    gerar();
+    $(modo === "checkout" ? "ck_link" : "cp_link").focus();
+  });
+
+  document.querySelectorAll("[data-modo]").forEach(el => el.addEventListener("click", ev => {
+    ev.preventDefault();
+    trocarModo(el.dataset.modo);
+    if (el.closest(".strip")) {
+      document.querySelectorAll(".strip a").forEach(a => a.classList.toggle("ativo", a === el));
+    }
+    $("ferramenta").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    setTimeout(() => $(el.dataset.foco).focus({ preventScroll: true }), 350);
+  }));
+
+  gerar();
 </script>
 </body>
 </html>
